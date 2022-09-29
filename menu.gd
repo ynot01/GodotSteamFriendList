@@ -31,7 +31,7 @@ func _ready() -> void:
 		push_warning("Steam init failed! "+steam["verbal"])
 		get_tree().quit()
 	
-	Steam.avatar_loaded.connect(_loaded_Avatar)
+	Steam.avatar_loaded.connect(_loaded_Avatar.bind("avatar_id", "width", "data"))
 	generate_friends()
 
 enum AvatarSizes {
