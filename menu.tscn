@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://o0457no2gaw5"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_ac8by"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ac8by")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.5
+offset_top = -39.0
+offset_right = 7.5
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Scramble/Regenerate"
+
+[node name="LineEdit" type="LineEdit" parent="Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 102.0
+offset_top = -31.0
+offset_right = 340.0
+grow_horizontal = 2
+grow_vertical = 0
+placeholder_text = "Search"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Quit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="text_changed" from="Button/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
