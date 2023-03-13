@@ -64,7 +64,7 @@ func generate_friends():
 		for x in widthx:
 			if available.size() == 0: return
 			var fr_pos = randi_range(0, available.size()-1)
-			var sid = Steam.getFriendByIndex(available[fr_pos], 4)
+			var sid = Steam.getFriendByIndex(available[fr_pos], Steam.FRIEND_FLAG_IMMEDIATE)
 			available.pop_at(fr_pos)
 			var texrect = TextureRect.new()
 			var dimensions = 32
@@ -108,9 +108,8 @@ func _loaded_Avatar(id: int, ImgSize: int, buffer: PackedByteArray, texrect = 0)
 		print("J")
 		texrect = boxes[id]
 	# Create the image and texture for loading
-	var AVATAR = Image.new()
+	var AVATAR = Image.create_from_data(ImgSize, ImgSize, false, Image.FORMAT_RGBA8, buffer)
 	var AVATAR_TEXTURE: ImageTexture
-	AVATAR.create_from_data(ImgSize, ImgSize, false, Image.FORMAT_RGBA8, buffer)
 	# Apply it to the texture
 	AVATAR_TEXTURE = ImageTexture.create_from_image(AVATAR)
 	texrect.texture = AVATAR_TEXTURE
