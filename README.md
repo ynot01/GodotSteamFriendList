@@ -5,4 +5,6 @@ Last updated using [Godot 4.0 - Steamworks 1.55 - GodotSteam 4.2](https://github
 
 Displays all friends' avatars randomly in a grid, along with their usernames colored depending on their status (online, away, etc.)
 
+Features a search bar
+
 Uses multi-threading
